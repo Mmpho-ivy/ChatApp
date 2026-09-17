@@ -18,7 +18,7 @@ public class ChatApp {
         String lastName = scanner.nextLine();
 
         // Username (retry until valid)
-        String username;
+        
         while (true) {
             System.out.print("Create username (must contain '_' and ≤ 5 chars): ");
             username = scanner.nextLine();
