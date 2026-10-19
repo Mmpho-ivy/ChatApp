@@ -100,7 +100,7 @@ public class Message {
                 "  \"Status\": \"" + actionStatus + "\"\n" +
                 "}";
 
-        try (FileWriter file = new FileWriter("message_" + messageID + ".json", true)) {
+        try (FileWriter file = new FileWriter("messages.json" , true)) {
             file.write(jsonContent + "\n");
         } catch (IOException e) {
             System.out.println("Error storing message to JSON: " + e.getMessage());
