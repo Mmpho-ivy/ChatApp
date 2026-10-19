@@ -1,7 +1,6 @@
 package chatapp;
 
-import *;
-import chatapp.Login;
+
 import org.junit.Test;
 import static org.junit.Assert.*;
 
