@@ -133,7 +133,7 @@ public class ChatApp {
                                 System.out.println("Choose action:");
                                 System.out.println("1) Send Message");
                                 System.out.println("2) Disregard Message");
-                                System.out.println("3) Store Message in Json file");
+                                System.out.println("3) Store Message in JSON file");
                                 System.out.print("Enter choice (1-3): ");
                                 
                                 int actionChoice = 1;
