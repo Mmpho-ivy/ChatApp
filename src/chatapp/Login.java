@@ -1,3 +1,8 @@
+/*
+ * Reference:
+ * Oracle Corporation. (2025). Java Platform, Standard Edition API Specification. 
+ * Available at: https://docs.oracle.com/en/java/javase/21/docs/api/ [Accessed: November 2026].
+ */
 package chatapp;
 
 import java.util.regex.Pattern;
@@ -10,14 +15,12 @@ public class Login {
     private String storedPassword;
     private String storedCell;
 
-    // Check username: contains '_' and max 5 characters
     public boolean checkUserName(String username) {
-        return username.contains("_") && username.length() <= 5;
+        return username != null && username.contains("_") && username.length() <= 5;
     }
 
-    // Check password: length >= 8, uppercase, digit, special
     public boolean checkPasswordComplexity(String password) {
-        if (password.length() < 8) return false;
+        if (password == null || password.length() < 8) return false;
         boolean hasUpper = false, hasDigit = false, hasSpecial = false;
         for (char c : password.toCharArray()) {
             if (Character.isUpperCase(c)) hasUpper = true;
@@ -27,22 +30,18 @@ public class Login {
         return hasUpper && hasDigit && hasSpecial;
     }
 
-    // Check cell phone: starts with '+', total length 10-12 chars
-    // regex adapted from standard international number patterns
     public boolean checkCellPhoneNumber(String cell) {
-        return Pattern.matches("^\\+[0-9]{9,11}$", cell);
+        return cell != null && Pattern.matches("^\\+[0-9]{9,11}$", cell);
     }
 
-    // Returns the cell phone message (used in ChatApp and unit tests)
     public String getCellPhoneMessage(String cell) {
         if (checkCellPhoneNumber(cell)) {
-            return "Cell number successfully captured.";
+            return "Cell phone number successfully captured.";
         } else {
-            return "Cell number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
+            return "Cell phone number is incorrectly formatted or does not contain an international code; please correct the number and try again.";
         }
     }
 
-    // Registration status (username and password checks)
     public String registerUser(String username, String password) {
         if (!checkUserName(username)) {
             return "Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.";
@@ -53,12 +52,10 @@ public class Login {
         return "User registered successfully.";
     }
 
-    // Verify login credentials
     public boolean loginUser(String username, String password) {
         return storedUsername != null && storedUsername.equals(username) && storedPassword.equals(password);
     }
 
-    // Login status message
     public String returnLoginStatus(boolean success, String firstName, String lastName) {
         if (success) {
             return "Welcome " + firstName + " " + lastName + ", it is great to see you again.";
@@ -67,7 +64,6 @@ public class Login {
         }
     }
 
-    // Store user details
     public void setStoredDetails(String firstName, String lastName, String username, String password, String cell) {
         this.storedFirstName = firstName;
         this.storedLastName = lastName;
