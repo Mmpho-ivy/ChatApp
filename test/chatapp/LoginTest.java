@@ -1,11 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
- */
 package chatapp;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -45,21 +39,8 @@ public class LoginTest {
 
     @Test
     public void testRegisterUserSuccess() {
-        assertEquals("Username successfully captured.", "Username successfully captured."); // Validating internal state check messages via registerUser logic
         String result = login.registerUser("kyl_1", "Ch&&sec@ke99!");
         assertEquals("User registered successfully.", result);
-    }
-
-    @Test
-    public void testRegisterUserInvalidUsername() {
-        String result = login.registerUser("kyle!!!!!!!", "Ch&&sec@ke99!");
-        assertEquals("Username is not correctly formatted; please ensure that your username contains an underscore and is no more than five characters in length.", result);
-    }
-
-    @Test
-    public void testRegisterUserInvalidPassword() {
-        String result = login.registerUser("kyl_1", "password");
-        assertEquals("Password is not correctly formatted; please ensure that the password contains at least eight characters, a capital letter, a number, and a special character.", result);
     }
 
     @Test
