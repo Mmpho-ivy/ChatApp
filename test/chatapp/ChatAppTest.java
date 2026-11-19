@@ -1,6 +1,5 @@
 package chatapp;
 
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -8,7 +7,7 @@ public class ChatAppTest {
 
     private final Login login = new Login();
 
-    //  assertTrue / assertFalse 
+    // ---------- assertTrue / assertFalse ----------
 
     @Test
     public void testValidUsername() {
